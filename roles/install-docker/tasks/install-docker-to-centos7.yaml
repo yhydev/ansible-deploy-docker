@@ -1,0 +1,30 @@
+- name: update centos7 yum base repo
+  tags:
+  - update-centos7-yum-base-repo
+  vars:
+    centos7_yum_base_repo_url: https://mirrors.aliyun.com/repo/Centos-7.repo
+  get_url: 
+    backup: yes
+    url: "{{ centos7_yum_base_repo_url }}"
+    dest: /etc/yum.repos.d/CentOS-Base.repo
+    force: yes
+- name: update centos7 yum docker ce repo
+  tags:
+  - update-centos7-yum-docker-ce-repo
+  vars:
+    centos7_yum_docker_ce_repo_url: https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+  get_url: 
+    backup: yes
+    url: "{{ centos7_yum_docker_ce_repo_url }}"
+    dest: /etc/yum.repos.d/docker-ce.repo
+    force: yes
+- name: yum makecache fast
+  shell: yum makecache fast
+- name: install docker-ce
+  yum:
+    state: present
+    name: docker-ce
+# - name: install docker-compose-plugin
+#   yum:
+#     state: present
+#     name: docker-compose-plugin

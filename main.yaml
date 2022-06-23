@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+  roles:
+  - role: install-docker
+  - role: install-docker-compose
+  - role: init-docker-daemon
+  - role: enable-docker

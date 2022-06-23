@@ -1,0 +1,6 @@
+- name: create docker config directory
+  file: path=/etc/docker state=directory
+- name: copy docker daemon.json
+  copy: 
+    src: daemon.json
+    dest: /etc/docker/daemon.json
