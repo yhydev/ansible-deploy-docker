@@ -1,3 +1,7 @@
 namespace: "yhydev"
 name: "install-docker"
 version: "1.0.0"
+readme: "README.md"
+description: "Install Docker"
+authors:
+    - "yhydev"
