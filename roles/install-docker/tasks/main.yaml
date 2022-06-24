@@ -1,2 +1,4 @@
-- include_tasks: install-docker-to-centos7.yaml
-  when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == "7"
+- name: Install Docker CE
+  package:
+    name: docker-ce
+    state: present
